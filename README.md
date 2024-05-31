@@ -35,6 +35,6 @@ This is the initial version of the tool and currently it has some shortcomings l
 - Have tested the tool with limited number of applications and on Python3. There might be bugs that I am not aware yet but again, this is a working PoC I wanted to share with community.
 
 ## Final note:
-This is for research and educational purpose only! Do not use this tool for any unauthorized activities or bad things. I am 
+This is for research and educational purpose only! Do not use this tool for any unauthorized activities or bad things.
 
 
