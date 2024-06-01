@@ -31,7 +31,7 @@ python fragtunnel.py -p 1234 -t mywebsite.com:80 -T 1.2.3.4:80
 Once executed, the tunnel client will setup a local server on the local port (-p) so you can connect with your application.
 Then the tunnel client will connect to the target tunnel server using the address and port number provided (-T) and will send target details provided (-t) to the tunnel server so the tunnel server can establish a connection to the final target on its side.
 
-## Todo
+## To-do
 This is the initial version of the tool, and currently it has some shortcomings, like:
 - Tunnel traffic is not multithreaded; therefore, the overall speed is slow. Depending on the tool you use and its timeout value, there is quite a bit of a chance that your tool may timeout while sending or receiving the data.
 - Currently, it does not support SSL/TLS. That's something planned to be added.
