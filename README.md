@@ -1,14 +1,16 @@
 # Fragtunnel
-Fragtunnel is a PoC TCP tunneling tool that exploits the design flaw that IDS/IPS engines and Next Generation Firewalls have; therefore, it can tunnel your application's traffic to the target server while not being detected and blocked by Next Generation firewalls using Layer 7 application rules.
+Fragtunnel is a PoC TCP tunneling tool that exploits the design flaw that IDS/IPS engines and Next Generation Firewalls have; therefore, it can tunnel your application's traffic to the target server and back while not being detected and blocked by Next Generation firewalls using Layer 7 application rules.
 
 ### The issue
 IDS/IPS engines used by the most next-generation firewalls allow a few packets of data to reach the destination while they collect enough information to make a verdict on whether they should allow or block the traffic. This is a design flaw that was discussed and published by different researchers within the last decade and can be exploited by malicious actors (if they were not already??). A few years ago, a few interesting findings made me curious about this funny behavior, and I did my research and wrote a simple PoC code without being aware of other researchers work. That PoC code was good to just demonstrate the bypass, but it wasn't really useful for other use cases. For a long time, I was envisioning developing a tunneling tool that you can just use with any tool you have and bypass NGFWs without changing their source code. Finally, meet fragtunnel! It may not be perfect yet, but it does the job ;)
 
 ## How it works?
-- Data received from your application (at tunnel client) or from target server (at tunnel server) get sliced into smaller fragments.
-- Each fragment gets sent one by one via the tunnel, each fragment within a new TCP session
-- Data coming out from tunnel gets merged to make original data
-- Finally restored original data gets sent to its target (either your application at local or the server you wanted to connect)
+- Data received from your local application (tunnel client side) or from target server (tunnel server side)
+- received data gets encoded/decoded (optional)
+- then sliced into smaller fragments.
+- each fragment gets sent one by one over the tunnel, each fragment within a new TCP session
+- fragments coming out from tunnel gets merged to make original data
+- finally, restored original data gets sent to its target (either to your application at local or to the target server)
 
 ## Usage
 ### Set up a tunnel server:
