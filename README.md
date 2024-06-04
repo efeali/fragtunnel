@@ -67,6 +67,7 @@ python fragtunnel.py -p 1234 -t mywebsite.com:80 -T 1.2.3.4:80 -e secret-key-to-
 This is the initial version of the tool, and currently it has some shortcomings, like:
 - Tunnel traffic is not multithreaded; therefore, the overall speed is slow. Depending on the tool you use and its timeout value, there is quite a bit of a chance that your tool may timeout while sending or receiving the data.
 - Currently, it does not support SSL/TLS. That's something planned to be added.
+- If the tunnel client exits and reconnects for a new target the tunnel server should properly handle the new connection without restarting 
 - The tool was tested with a limited number of applications. There might be bugs of which I am not aware yet, but again, this is a working PoC I wanted to share with the community.
 
 ## Final note:
